@@ -8,25 +8,16 @@ const Home = () => {
 
   return (
     <div
-      className={`home min-h-screen flex justify-center items-center flex-col relative ${
-        darkMode ? "dark-mode" : "light-mode"
-      }`}
+      id="home"
+      className="home min-h-screen flex justify-center items-center flex-col relative dark:bg-black dark:text-white bg-white text-black"
     >
       <div className="home_wrapper_text min-h-screen flex flex-col justify-center items-center max-w-6xl mx-auto px-4">
         <div className="home_wrapper_text_above flex items-center gap-12">
           <div className="home_wrapper_text_above_text flex-1">
-            <h1
-              className={`text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent ${
-                darkMode ? "dark:text-white" : "text-black"
-              }`}
-            >
+            <h1 className="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:text-white text-black">
               Full Stack Developer
             </h1>
-            <p
-              className={`text-xl font-sans mb-8 ${
-                darkMode ? "text-gray-300" : "text-gray-700"
-              }`}
-            >
+            <p className="text-xl font-sans mb-8 dark:text-black text-black">
               Hey! I'm Navneeth KS. A passionate full stack web developer based
               in Bengaluru, India 🏠
             </p>
@@ -87,12 +78,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div
-          className={`home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm ${
-            darkMode ? "bg-gray-800/50" : "bg-white/50"
-          }`}
-        >
-          <h3 className="text-2xl font-bold mb-4 text-center">Tech Stack</h3>
+        <div className="home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm dark:bg-black bg-white/50 shadow-xl">
+          <h3 className="text-2xl font-bold mb-4 text-center dark:text-white text-black">Tech Stack</h3>
           <div className="tech_icons flex flex-wrap justify-center gap-6">
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
               <Image src="/images/Tech/HTML.png" alt="HTML" width={40} height={40} />
@@ -115,76 +102,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        @keyframes slideFromRight {
-          from {
-            right: -300px;
-          }
-          to {
-            right: calc(50% - 405px); /* Center the tech stack horizontally on desktop */
-          }
-        }
-
-        @media (max-width: 768px) {
-          @keyframes slideFromRight {
-            from {
-              right: -300px;
-            }
-            to {
-              right: 0px; /* Center the tech stack horizontally on mobile */
-            }
-          }
-
-          .home_wrapper_text_above {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-          }
-
-          .home_wrapper_text_above_pic {
-            margin-bottom: 20px;
-          }
-
-          .home_wrapper_text_above_text {
-            margin: 0;
-            right: 0;
-            bottom: 0;
-            h1 {
-              font-size: 2.5rem;
-            }
-            p {
-              font-size: 16px;
-            }
-            .social_links img {
-              margin: 20px 5px;
-            }
-          }
-
-          .home_wrapper_text_below {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            right: 0;
-            top: 20px;
-            gap: 15px;
-            h3 {
-              font-size: 20px;
-            }
-            .tech_icons img {
-              margin: 10px 5px;
-              height: 25px;
-              width: 25px;
-            }
-          }
-        }
-
-        @media (min-width: 769px) {
-          .home_wrapper_text_below {
-            right: 345px;
-            top: 50px;
-          }
-        }
-      `}</style>
     </div>
   );
 };

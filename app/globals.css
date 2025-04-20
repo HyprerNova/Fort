@@ -1,3 +1,33 @@
 @import "tailwindcss";
 
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
+}
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+} */
+
+/* Light Mode Styles */
+.light-mode {
+  @apply bg-white text-black;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  @apply bg-black text-white;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300;
+}
+
 
