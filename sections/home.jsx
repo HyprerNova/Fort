@@ -1,7 +1,6 @@
 "use client";
 import { useTheme } from "@/components/ThemeContext";
 import Image from "next/image";
-//import Nav from "@/public/images/Me/Nav.jpg";
 
 const Home = () => {
   const { darkMode } = useTheme();
@@ -9,15 +8,25 @@ const Home = () => {
   return (
     <div
       id="home"
-      className="home min-h-screen flex justify-center items-center flex-col relative dark:bg-black dark:text-white bg-white text-black"
+      className={`home min-h-screen flex justify-center items-center flex-col relative ${
+        darkMode ? "dark-mode" : "light-mode"
+      }`}
     >
       <div className="home_wrapper_text min-h-screen flex flex-col justify-center items-center max-w-6xl mx-auto px-4">
         <div className="home_wrapper_text_above flex items-center gap-12">
           <div className="home_wrapper_text_above_text flex-1">
-            <h1 className="text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:text-white text-black">
+            <h1
+              className={`text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent ${
+                darkMode ? "dark:text-white" : "text-black"
+              }`}
+            >
               Full Stack Developer
             </h1>
-            <p className="text-xl font-sans mb-8 dark:text-black text-black">
+            <p
+              className={`text-xl font-sans mb-8 ${
+                darkMode ? "dark:text-white" : "text-black"
+              }`}
+            >
               Hey! I'm Navneeth KS. A passionate full stack web developer based
               in Bengaluru, India 🏠
             </p>
@@ -78,8 +87,18 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm dark:bg-black bg-white/50 shadow-xl animate-slideFromRight">
-          <h3 className="text-2xl font-bold mb-4 text-center dark:text-white text-black">Tech Stack</h3>
+        <div
+          className={`home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm ${
+            darkMode ? "dark:bg-black dark:text-white" : "bg-white/50 text-black"
+          } shadow-xl animate-slideFromRight`}
+        >
+          <h3
+            className={`text-2xl font-bold mb-4 text-center ${
+              darkMode ? "dark:text-white" : "text-black"
+            }`}
+          >
+            Tech Stack
+          </h3>
           <div className="tech_icons flex flex-wrap justify-center gap-6">
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
               <Image src="/images/Tech/HTML.png" alt="HTML" width={40} height={40} />
@@ -106,10 +125,10 @@ const Home = () => {
       <style jsx>{`
         @keyframes slideFromRight {
           from {
-            right: -300px;
+            right: -600px; /* Increased from -300px to slide more to the left */
           }
           to {
-            right: calc(50% - 450px);
+            right: calc(50% - 450px); /* Kept the same ending position */
           }
         }
 
@@ -120,7 +139,7 @@ const Home = () => {
         @media screen and (max-width: 768px) {
           @keyframes slideFromRight {
             from {
-              right: -300px;
+              right: -600px; /* Increased from -300px for mobile */
             }
             to {
               right: 0px;
