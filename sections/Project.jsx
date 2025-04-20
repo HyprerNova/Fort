@@ -154,11 +154,11 @@ const Projects = () => {
             
             <div className="space-y-6">
               <div className="flex flex-col gap-2">
-                <h2 className={`text-3xl font-bold ${
+                <h4 className={`text-3xl font-bold ${
                   darkMode ? "text-white" : "text-gray-800"
                 }`}>
                   {selectedProject.name}
-                </h2>
+                </h4>
                 <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
                   darkMode ? "bg-blue-900/50 text-blue-200" : "bg-blue-100 text-blue-800"
                 }`}>
@@ -184,7 +184,7 @@ const Projects = () => {
               <div className="flex flex-col sm:flex-row justify-end gap-4">
                 <button
                   onClick={closeModal}
-                  className={`sm:hidden w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
+                  className={`py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
                     darkMode
                       ? "bg-gray-700 text-white hover:bg-gray-600"
                       : "bg-gray-200 text-gray-800 hover:bg-gray-300"
