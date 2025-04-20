@@ -22,7 +22,7 @@
 
 /* Dark Mode Styles */
 .dark-mode {
-  @apply bg-black text-white;
+  @apply bg-gray-950 text-white;
 }
 
 /* Smooth transitions */

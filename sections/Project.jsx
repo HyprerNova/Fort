@@ -4,10 +4,37 @@ import { useTheme } from "@/components/ThemeContext";
 import Link from "next/link";
 import Image from "next/image";
 import data from "@/public/Data";
+import { useState, useRef } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Projects = () => {
   const { darkMode } = useTheme();
   const name = "<My Projects/>";
+  const scrollContainerRef = useRef(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, clientWidth } = scrollContainerRef.current;
+      const scrollTo = direction === 'left' 
+        ? scrollLeft - clientWidth 
+        : scrollLeft + clientWidth;
+      
+      scrollContainerRef.current.scrollTo({
+        left: scrollTo,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setShowLeftArrow(scrollLeft > 0);
+      setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
+    }
+  };
 
   return (
     <div
@@ -27,74 +54,122 @@ const Projects = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
         </div>
 
-        <div className="space-y-12">
-          {data.map((item, i) => (
-            <div
-              key={i}
-              className={`group relative overflow-hidden rounded-2xl backdrop-blur-sm ${
-                darkMode ? "bg-gray-800/50" : "bg-white/50"
-              } shadow-xl transition-all duration-300 hover:shadow-2xl`}
+        <div className="relative">
+          {showLeftArrow && (
+            <button
+              onClick={() => scroll('left')}
+              className={`absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full ${
+                darkMode ? 'bg-gray-800/50 text-white' : 'bg-white/50 text-black'
+              } hover:bg-blue-500 hover:text-white transition-all duration-300`}
             >
-              <div className="grid md:grid-cols-2 gap-8 p-8">
-                <div className="relative h-[400px] rounded-xl overflow-hidden">
-                  <Image
-                    src={item.pic}
-                    alt={item.name}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                
-                <div className="flex flex-col justify-center">
-                  <h2
-                    className={`text-3xl font-bold mb-4 ${
-                      darkMode ? "text-white" : "text-gray-800"
-                    }`}
-                  >
-                    {item.name}
-                  </h2>
+              <FaChevronLeft size={24} />
+            </button>
+          )}
+          
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-200 dark:scrollbar-track-gray-800"
+          >
+            {data.map((item, i) => (
+              <div
+                key={i}
+                className={`flex-none w-[90%] md:w-[45%] snap-center group relative overflow-hidden rounded-2xl backdrop-blur-sm ${
+                  darkMode ? "bg-gray-800/50" : "bg-white/50"
+                } shadow-xl transition-all duration-300 hover:shadow-2xl`}
+              >
+                <div className="flex flex-col h-full">
+                  <div className="relative h-[300px] md:h-[400px] rounded-t-xl overflow-hidden">
+                    <Image
+                      src={item.pic}
+                      alt={item.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                   
-                  <p
-                    className={`text-lg leading-relaxed mb-6 ${
-                      darkMode ? "text-gray-300" : "text-gray-600"
-                    }`}
-                  >
-                    {item.details}
-                  </p>
-                  
-                  <Link
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                      darkMode
-                        ? "bg-blue-600 text-white hover:bg-blue-700"
-                        : "bg-blue-500 text-white hover:bg-blue-600"
-                    }`}
-                  >
-                    View Project
-                    <svg
-                      className="w-5 h-5 ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  <div className="flex flex-col justify-between flex-grow p-6">
+                    <div>
+                      <h2
+                        className={`text-3xl font-bold mb-4 ${
+                          darkMode ? "text-white" : "text-gray-800"
+                        }`}
+                      >
+                        {item.name}
+                      </h2>
+                      
+                      <p
+                        className={`text-lg leading-relaxed mb-6 ${
+                          darkMode ? "text-gray-300" : "text-gray-600"
+                        }`}
+                      >
+                        {item.details}
+                      </p>
+                    </div>
+                    
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                        darkMode
+                          ? "bg-blue-600 text-white hover:bg-blue-700"
+                          : "bg-blue-500 text-white hover:bg-blue-600"
+                      }`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </Link>
+                      View Project
+                      <svg
+                        className="w-5 h-5 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {showRightArrow && (
+            <button
+              onClick={() => scroll('right')}
+              className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full ${
+                darkMode ? 'bg-gray-800/50 text-white' : 'bg-white/50 text-black'
+              } hover:bg-blue-500 hover:text-white transition-all duration-300`}
+            >
+              <FaChevronRight size={24} />
+            </button>
+          )}
         </div>
       </div>
 
       <style jsx>{`
+        .scrollbar-thin::-webkit-scrollbar {
+          height: 8px;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar-track {
+          background: transparent;
+          border-radius: 4px;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+          background: #3b82f6;
+          border-radius: 4px;
+        }
+        
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+          background: #2563eb;
+        }
+        
         @media (max-width: 768px) {
           .projects {
             padding: 2rem 1rem;
@@ -104,12 +179,8 @@ const Projects = () => {
             font-size: 2.5rem;
           }
           
-          .grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .relative {
-            height: 300px;
+          .w-\[90\%\] {
+            width: 85%;
           }
           
           h2 {

@@ -1,14 +1,21 @@
 "use client";
 
 import { useTheme } from "@/components/ThemeContext";
+import { useState } from "react";
 
 const Contact = () => {
   const { darkMode } = useTheme();
-  const name = "<Hire Me!>";
+  const [copied, setCopied] = useState(false);
+  const email = "navneethks094@gmail.com";
 
-  // Function to add dummy message
-  const addDummyMessage = () => {
-    document.getElementById("subject").value = "Sorry, I'm trying to figure out the API part 😅";
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
   };
 
   return (
@@ -24,7 +31,7 @@ const Contact = () => {
               darkMode ? "dark:text-white" : "text-black"
             }`}
           >
-            {name}
+            Contact Me
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
         </div>
@@ -34,88 +41,26 @@ const Contact = () => {
             darkMode ? "bg-gray-800/50" : "bg-white/50"
           }`}
         >
-          <form className="space-y-6">
-            <div className="space-y-2">
-              <label
-                htmlFor="email"
-                className={`block text-lg font-medium ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
+          <div className="flex flex-col items-center space-y-6">
+            <p className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+              Feel free to reach out to me at:
+            </p>
+            <div className="flex items-center space-x-4">
+              {/* <p className={`text-xl font-mono ${darkMode ? "text-white" : "text-black"}`}>
+                {email}
+              </p> */}
+              <button
+                onClick={copyEmail}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  darkMode
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "bg-blue-500 text-white hover:bg-blue-600"
                 }`}
               >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your email"
-                required
-                className={`w-full px-4 py-3 rounded-lg border ${
-                  darkMode
-                    ? "bg-gray-700/50 border-gray-600 text-gray-300 placeholder-gray-400"
-                    : "bg-white border-gray-300 text-gray-700 placeholder-gray-500"
-                } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300`}
-              />
+                {copied ? "Copied!" : "Copy Email"}
+              </button>
             </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="subject"
-                className={`block text-lg font-medium ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                }`}
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Subject"
-                required
-                className={`w-full px-4 py-3 rounded-lg border ${
-                  darkMode
-                    ? "bg-gray-700/50 border-gray-600 text-gray-300 placeholder-gray-400"
-                    : "bg-white border-gray-300 text-gray-700 placeholder-gray-500"
-                } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300`}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="message"
-                className={`block text-lg font-medium ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                }`}
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Your message"
-                rows="4"
-                required
-                className={`w-full px-4 py-3 rounded-lg border ${
-                  darkMode
-                    ? "bg-gray-700/50 border-gray-600 text-gray-300 placeholder-gray-400"
-                    : "bg-white border-gray-300 text-gray-700 placeholder-gray-500"
-                } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 resize-none`}
-              ></textarea>
-            </div>
-
-            <button
-              type="button"
-              onClick={addDummyMessage}
-              className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
-                darkMode
-                  ? "bg-blue-600 text-white hover:bg-blue-700"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
-              }`}
-            >
-              Submit
-            </button>
-          </form>
+          </div>
         </div>
       </div>
 
@@ -133,8 +78,9 @@ const Contact = () => {
             padding: 1.5rem;
           }
           
-          input, textarea {
-            font-size: 1rem;
+          .flex.items-center {
+            flex-direction: column;
+            gap: 1rem;
           }
         }
       `}</style>
