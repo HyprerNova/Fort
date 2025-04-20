@@ -28,7 +28,7 @@ const Home = () => {
               }`}
             >
               Here’s to ideas, effort, and everything in between. Welcome to my
-              corner of the internet ! Based in Bengaluru 📍
+              corner of the internet ! Based in India 
             </p>
             <div className="social_links flex gap-4">
               <a
