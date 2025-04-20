@@ -127,7 +127,7 @@ const Home = () => {
             right: -600px; /* Increased from -300px to slide more to the left */
           }
           to {
-            right: calc(50% - 450px); /* Kept the same ending position */
+            right: calc(50% - 200px); /* Kept the same ending position */
           }
         }
 
