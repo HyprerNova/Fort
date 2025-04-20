@@ -194,6 +194,12 @@ const Home = () => {
             bottom: 0;
           }
 
+          .social_links {
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+          }
+
           .home_wrapper_text_above_text h1 {
             font-size: 2.5rem;
           }
