@@ -42,20 +42,7 @@ const About = () => {
             <p className={`text-lg leading-relaxed ${
               darkMode ? "text-gray-300" : "text-gray-700"
             }`}>
-              I am deeply fascinated by the rapid advancements in technology and
-              how they are reshaping our world. My passion for tech extends beyond
-              just using the latest gadgets; I am constantly exploring emerging
-              trends, experimenting with new tools and frameworks, and seeking
-              innovative solutions to real-world problems.
-            </p>
-            
-            <p className={`text-lg leading-relaxed ${
-              darkMode ? "text-gray-300" : "text-gray-700"
-            }`}>
-              I believe that technology has the power to drive positive change and create a better
-              future for everyone. I am committed to staying at the forefront of
-              these developments, learning new skills, and contributing to
-              innovative projects that make a meaningful impact.
+              Greetings, my fellow homo sapiens! I see you've stumbled upon this web page. Born in the 21st century — truly the best time to be alive thanks to the revolutionary rise of AI — I couldn't be more thrilled to witness these exciting times. So, what are you waiting for? Scroll through the page and enjoy your day!
             </p>
           </div>
         </div>
