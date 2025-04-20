@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import data from "@/public/Data";
 import { useState, useRef } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaGithub, FaTimes } from "react-icons/fa";
 
 const Projects = () => {
   const { darkMode } = useTheme();
@@ -13,6 +13,8 @@ const Projects = () => {
   const scrollContainerRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -34,6 +36,16 @@ const Projects = () => {
       setShowLeftArrow(scrollLeft > 0);
       setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
     }
+  };
+
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
   };
 
   return (
@@ -99,41 +111,20 @@ const Projects = () => {
                       >
                         {item.name}
                       </h2>
-                      
-                      <p
-                        className={`text-lg leading-relaxed mb-6 ${
-                          darkMode ? "text-gray-300" : "text-gray-600"
-                        }`}
-                      >
-                        {item.details}
-                      </p>
                     </div>
                     
-                    <Link
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                        darkMode
-                          ? "bg-blue-600 text-white hover:bg-blue-700"
-                          : "bg-blue-500 text-white hover:bg-blue-600"
-                      }`}
-                    >
-                      View Project
-                      <svg
-                        className="w-5 h-5 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    <div className="flex flex-col gap-4">
+                      <button
+                        onClick={() => openModal(item)}
+                        className={`w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
+                          darkMode
+                            ? "bg-blue-600 text-white hover:bg-blue-700"
+                            : "bg-blue-500 text-white hover:bg-blue-600"
+                        }`}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </Link>
+                        View Details
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -152,6 +143,63 @@ const Projects = () => {
           )}
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && selectedProject && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className={`relative max-w-2xl w-full rounded-2xl p-6 ${
+            darkMode ? "bg-gray-900" : "bg-white"
+          }`}>
+            <button
+              onClick={closeModal}
+              className={`absolute top-4 right-4 p-2 rounded-full ${
+                darkMode ? "text-white hover:bg-gray-800" : "text-gray-800 hover:bg-gray-100"
+              }`}
+            >
+              <FaTimes size={24} />
+            </button>
+            
+            <div className="space-y-6">
+              <h2 className={`text-3xl font-bold ${
+                darkMode ? "text-white" : "text-gray-800"
+              }`}>
+                {selectedProject.name}
+              </h2>
+              
+              <div className="relative h-64 rounded-xl overflow-hidden">
+                <Image
+                  src={selectedProject.pic}
+                  alt={selectedProject.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
+              <p className={`text-lg leading-relaxed ${
+                darkMode ? "text-gray-300" : "text-gray-600"
+              }`}>
+                {selectedProject.details}
+              </p>
+              
+              <div className="flex justify-end">
+                <Link
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                    darkMode
+                      ? "bg-blue-600 text-white hover:bg-blue-700"
+                      : "bg-blue-500 text-white hover:bg-blue-600"
+                  }`}
+                >
+                  <FaGithub className="mr-2" />
+                  View on GitHub
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         .scrollbar-thin::-webkit-scrollbar {
