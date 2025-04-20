@@ -84,7 +84,9 @@ const Projects = () => {
                       src={item.pic}
                       alt={item.name}
                       fill
+                      sizes="(max-width: 768px) 90vw, 45vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      priority={i === 0}
                     />
                   </div>
                   
