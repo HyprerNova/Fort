@@ -20,15 +20,14 @@ const Home = () => {
                 darkMode ? "dark:text-white" : "text-black"
               }`}
             >
-              Full Stack Developer
+              Navneeth
             </h1>
             <p
               className={`text-xl font-sans mb-8 ${
                 darkMode ? "dark:text-white" : "text-black"
               }`}
             >
-              Hey! I'm Navneeth KS. A passionate full stack web developer based
-              in Bengaluru, India 🏠
+              Here’s to ideas, effort, and everything in between. Welcome to my corner of the internet ! Based in Bengaluru 📍
             </p>
             <div className="social_links flex gap-4">
               <a
@@ -78,7 +77,7 @@ const Home = () => {
           <div className="home_wrapper_text_above_pic flex-1 flex justify-center">
             <div className="relative w-64 h-64">
               <Image
-                src="/images/Me/Nav.jpeg"
+                src="/images/Me/me.jpeg"
                 alt="Navneeth"
                 fill
                 className="rounded-full object-cover shadow-2xl border-4 border-blue-500"

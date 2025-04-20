@@ -1,21 +1,25 @@
 const data = [
     {
-        name: "Jokes",
-        details: "The dark jokes website I created was a project I undertook while learning Node.js. This platform is designed to deliver humor through a collection of edgy and unconventional jokes, catering to those with a taste for dark humor. Leveraging my Node.js skills, I implemented features to manage user authentication, joke submission, and voting mechanisms to engage the audience. The website's sleek and intuitive design ensures a seamless user experience, making it a go-to destination for those seeking a good laugh with a darker twist.",
-        pic: "/images/Projects/jokes.png",
-        link: "https://github.com/kingnavneeth094/JokesApi.git"
+        name: "CalmCampanion",
+        details: "Built this website during my 3rd semester for full stack web development course. This website aims to spread mental awareness in a world where mental health generally ignored",
+        tag : ['NextJS, ','TypeScript, ','Tailwind CSS'],
+        pic: "/images/Projects/calm.png",
+        link: "https://github.com/kingnavneeth094/CALMPANION.git"
     },
     {
-        name: "CalmCampanion",
-        details: "During my 3rd semester, I embarked on a meaningful project by creating a mental health awareness website. This platform serves as a vital resource for individuals seeking information, support, and guidance regarding mental health issues. Through a combination of informative articles, personal stories, and resources, the website aims to break the stigma surrounding mental health and promote understanding and empathy. The development process involved implementing user-friendly features such as forums, chat support, and access to professional help, ensuring that visitors can find the assistance they need in a safe and supportive online environment.",
+        name: "Student Admin Portal",
+        details: "Built this website for the college management. This application enabled the college to store essential information (such as mode of admission, KCET rank etc) about the freshers.",
+        tag: ['Next.js, ', 'Java Script, ', 'Tailwind CSS'],
         pic: "/images/Projects/calm.png",
-        link: "https://github.com/kingnavneeth094/FullStack.git"
+        link: "No link"
+
     },
     {
         name: "Personal Portfolio Website",
-        details: "This website presents a sleek and functional navigation interface designed for optimal user experience. With its elegant design and intuitive layout, users can seamlessly navigate through different sections such as Home, About, Projects, and Contact. The dark mode feature adds versatility, allowing users to toggle between light and dark themes effortlessly. The navbar remains sticky, ensuring accessibility as users scroll through content. Moreover, the inclusion of interactive elements like the sun and moon icons for toggling dark mode enhances user engagement. The website's attention to detail, from hover effects to transition lines, contributes to its polished and professional appearance, making it a standout platform for showcasing information effectively.",
+        details: "This website is a testament to my skills as a web developer.",
+        tag: ['Next.js, ', 'Java Script, ', 'Tailwind CSS'],
         pic: "/images/Projects/portfolio.png",
-        link: "Yet to upload"
+        link: "yet to be uploaded",
     }
 ];
 
