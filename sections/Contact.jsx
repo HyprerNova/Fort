@@ -20,6 +20,7 @@ const Contact = () => {
 
   return (
     <div
+    id = "contact   "
       className={`contact min-h-screen py-20 ${
         darkMode ? "dark-mode" : "light-mode"
       }`}

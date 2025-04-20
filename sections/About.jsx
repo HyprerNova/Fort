@@ -8,6 +8,7 @@ const About = () => {
 
   return (
     <div
+    id = "about"
       className={`about flex justify-center items-center min-h-screen py-20 ${
         darkMode ? "dark-mode" : "light-mode"
       }`}

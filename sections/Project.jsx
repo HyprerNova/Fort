@@ -50,6 +50,7 @@ const Projects = () => {
 
   return (
     <div
+    id = "projects"
       className={`projects min-h-screen py-20 ${
         darkMode ? "dark-mode" : "light-mode"
       }`}
