@@ -6,7 +6,7 @@ import { useState } from "react";
 const Contact = () => {
   const { darkMode } = useTheme();
   const [copied, setCopied] = useState(false);
-  const email = "navneethks094@gmail.com";
+  const email = "navlion666@gmail.com";
 
   const copyEmail = async () => {
     try {

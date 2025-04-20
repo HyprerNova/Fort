@@ -5,6 +5,7 @@ import { useTheme } from "./ThemeContext";
 import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,7 +34,12 @@ const Navbar = () => {
     >
       {/* Navbar Name */}
       <Link href="/" className="font-bold text-xl ml-2.5 hover:text-blue-500 transition-colors duration-300">
-        Navneeth
+        <Image
+          src="/images/NavBar/home.svg"
+          alt="Home"
+          width={20}
+          height={20}
+        />
       </Link>
 
       {/* Hamburger Menu Icon for Mobile */}
