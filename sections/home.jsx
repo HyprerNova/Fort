@@ -27,7 +27,8 @@ const Home = () => {
                 darkMode ? "dark:text-white" : "text-black"
               }`}
             >
-              Here’s to ideas, effort, and everything in between. Welcome to my corner of the internet ! Based in Bengaluru 📍
+              Here’s to ideas, effort, and everything in between. Welcome to my
+              corner of the internet ! Based in Bengaluru 📍
             </p>
             <div className="social_links flex gap-4">
               <a
@@ -88,7 +89,9 @@ const Home = () => {
         </div>
         <div
           className={`home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm ${
-            darkMode ? "dark:bg-black dark:text-white" : "bg-white/50 text-black"
+            darkMode
+              ? "dark:bg-black dark:text-white"
+              : "bg-white/50 text-black"
           } shadow-xl animate-slideFromRight`}
         >
           <h3
@@ -100,22 +103,52 @@ const Home = () => {
           </h3>
           <div className="tech_icons flex flex-wrap justify-center gap-6">
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
-              <Image src="/images/Tech/HTML.png" alt="HTML" width={40} height={40} />
+              <Image
+                src="/images/Tech/aws.svg"
+                alt="HTML"
+                width={40}
+                height={40}
+              />
             </div>
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
-              <Image src="/images/Tech/CSS.png" alt="CSS" width={40} height={40} />
+              <Image
+                src="/images/Tech/java.svg"
+                alt="CSS"
+                width={40}
+                height={40}
+              />
             </div>
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
-              <Image src="/images/Tech/JAVASCRIPT.png" alt="JavaScript" width={40} height={40} />
+              <Image
+                src="/images/Tech/postgresql.svg"
+                alt="JavaScript"
+                width={40}
+                height={40}
+              />
             </div>
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
-              <Image src="/images/Tech/REACT.png" alt="React" width={40} height={40} />
+              <Image
+                src="/images/Tech/REACT.png"
+                alt="React"
+                width={40}
+                height={40}
+              />
             </div>
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
-              <Image src="/images/Tech/NODE.png" alt="Node.js" width={40} height={40} />
+              <Image
+                src="/images/Tech/NODE.png"
+                alt="Node.js"
+                width={40}
+                height={40}
+              />
             </div>
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
-              <Image src="/images/Tech/PYTHON.png" alt="Python" width={40} height={40} />
+              <Image
+                src="/images/Tech/PYTHON.png"
+                alt="Python"
+                width={40}
+                height={40}
+              />
             </div>
           </div>
         </div>
@@ -176,9 +209,10 @@ const Home = () => {
           .home_wrapper_text_below {
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            right: 0;
-            top: 20px;
+            position: static; /* remove absolute/relative positioning */
+            margin-top: 40px; /* some spacing if needed */
             gap: 15px;
           }
 

@@ -151,14 +151,6 @@ const Projects = () => {
           <div className={`relative max-w-2xl w-full rounded-2xl p-6 ${
             darkMode ? "bg-gray-900" : "bg-white"
           }`}>
-            <button
-              onClick={closeModal}
-              className={`absolute top-4 right-4 p-2 rounded-full ${
-                darkMode ? "text-white hover:bg-gray-800" : "text-gray-800 hover:bg-gray-100"
-              }`}
-            >
-              <FaTimes size={24} />
-            </button>
             
             <div className="space-y-6">
               <div className="flex flex-col gap-2">
