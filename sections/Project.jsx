@@ -181,12 +181,22 @@ const Projects = () => {
                 {selectedProject.details}
               </p>
               
-              <div className="flex justify-end">
+              <div className="flex flex-col sm:flex-row justify-end gap-4">
+                <button
+                  onClick={closeModal}
+                  className={`sm:hidden w-full py-3 px-6 rounded-lg font-medium transition-all duration-300 ${
+                    darkMode
+                      ? "bg-gray-700 text-white hover:bg-gray-600"
+                      : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  }`}
+                >
+                  Close
+                </button>
                 <Link
                   href={selectedProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  className={`inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                     darkMode
                       ? "bg-blue-600 text-white hover:bg-blue-700"
                       : "bg-blue-500 text-white hover:bg-blue-600"
