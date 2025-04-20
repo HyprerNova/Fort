@@ -13,7 +13,7 @@ const Home = () => {
       }`}
     >
       <div className="home_wrapper_text min-h-screen flex flex-col justify-center items-center max-w-6xl mx-auto px-4">
-        <div className="home_wrapper_text_above flex items-center gap-12">
+        <div className="home_wrapper_text_above flex animate-slideFromTop  items-center gap-12">
           <div className="home_wrapper_text_above_text flex-1">
             <h1
               className={`text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent ${
@@ -157,15 +157,30 @@ const Home = () => {
       <style jsx>{`
         @keyframes slideFromRight {
           from {
-            right: -600px; /* Increased from -300px to slide more to the left */
+            right: -200px; /* Increased from -300px to slide more to the left */
           }
           to {
-            right: calc(50% - 200px); /* Kept the same ending position */
+            right: calc(50% - 202px); /* Kept the same ending position */
           }
         }
 
+        @keyframes slideFromTop {
+          from {
+            transform: translateY(-100px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        .animate-slideFromTop {
+          animation: slideFromTop 3s ease-out forwards;
+        }
+
         .animate-slideFromRight {
-          animation: slideFromRight 1s ease-out forwards;
+          animation: slideFromRight 3s ease-out forwards;
         }
 
         @media screen and (max-width: 768px) {
