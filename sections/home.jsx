@@ -78,7 +78,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm dark:bg-black bg-white/50 shadow-xl">
+        <div className="home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm dark:bg-black bg-white/50 shadow-xl animate-slideFromRight">
           <h3 className="text-2xl font-bold mb-4 text-center dark:text-white text-black">Tech Stack</h3>
           <div className="tech_icons flex flex-wrap justify-center gap-6">
             <div className="tech-icon transform transition-all duration-300 hover:scale-110">
@@ -102,6 +102,90 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slideFromRight {
+          from {
+            right: -300px;
+          }
+          to {
+            right: calc(50% - 450px);
+          }
+        }
+
+        .animate-slideFromRight {
+          animation: slideFromRight 1s ease-out forwards;
+        }
+
+        @media screen and (max-width: 768px) {
+          @keyframes slideFromRight {
+            from {
+              right: -300px;
+            }
+            to {
+              right: 0px;
+            }
+          }
+
+          .home_wrapper_text_above {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+
+          .home_wrapper_text_above_pic {
+            margin-bottom: 20px;
+          }
+
+          .home_wrapper_text_above_text {
+            margin: 0;
+            right: 0;
+            bottom: 0;
+          }
+
+          .home_wrapper_text_above_text h1 {
+            font-size: 2.5rem;
+          }
+
+          .home_wrapper_text_above_text p {
+            font-size: 16px;
+          }
+
+          .home_wrapper_text_above_text img {
+            margin: 20px 5px;
+          }
+
+          .home_wrapper_text_below {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            right: 0;
+            top: 20px;
+            gap: 15px;
+          }
+
+          .home_wrapper_text_below h3 {
+            font-size: 20px;
+          }
+
+          .home_wrapper_text_below img {
+            margin: 10px 5px;
+            height: 25px;
+            width: 25px;
+          }
+        }
+
+        @media screen and (min-width: 769px) {
+          .home_wrapper_text_below {
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            gap: 25px;
+            right: 345px;
+            top: 50px;
+          }
+        }
+      `}</style>
     </div>
   );
 };
