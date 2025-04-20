@@ -10,7 +10,7 @@ const data = [
         name: "Student Admin Portal",
         details: "Built this website for the college management. This application enabled the college to store essential information (such as mode of admission, KCET rank etc) about the freshers.",
         tag: ['Next.js, ', 'Java Script, ', 'Tailwind CSS'],
-        pic: "/images/Projects/calm.png",
+        pic: "/images/Projects/admin.png",
         link: "No link"
 
     },
