@@ -27,7 +27,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar sticky top-0 z-50 flex justify-between items-center px-5 py-2.5 font-sans ${darkMode ? 'dark-mode' : 'light-mode'}`}
+      className={`navbar sticky top-0 z-50 flex justify-between items-center px-5 py-2.5 font-sans ${
+        darkMode ? "dark-mode" : "light-mode"
+      }`}
     >
       {/* Navbar Name */}
       <Link href="/" className="font-bold text-xl ml-2.5 hover:text-blue-500 transition-colors duration-300">
@@ -39,7 +41,7 @@ const Navbar = () => {
         <button
           onClick={handleToggleMenu}
           aria-label="Toggle Menu"
-          className={`${darkMode ? 'text-white' : 'text-black'}`}
+          className={`${darkMode ? "text-white" : "text-black"}`}
         >
           {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
@@ -47,8 +49,10 @@ const Navbar = () => {
 
       {/* Menu and Toggle Dropdown for Mobile */}
       <div
-        className={`md:hidden absolute top-12 right-5 w-48 bg-white text-white dark:text-black  dark:bg-black shadow-md rounded-lg p-4 transition-all duration-300 ${
-          menuOpen ? 'block' : 'hidden'
+        className={`md:hidden absolute top-12 right-5 w-48 ${
+          darkMode ? "bg-gray-900" : "bg-white"
+        } shadow-md rounded-lg p-4 transition-all duration-300 ${
+          menuOpen ? "block" : "hidden"
         }`}
       >
         <ul className="flex flex-col list-none gap-3">
@@ -57,16 +61,18 @@ const Navbar = () => {
               <a
                 href={`#${section}`}
                 onClick={(e) => handleNavigation(e, section)}
-                className={`font-bold text-xl ${darkMode ? 'text-white' : 'text-black'} hover:text-blue-500 transition-colors duration-300 w-full text-left`}
+                className={`font-bold text-xl ${
+                  darkMode ? "text-white" : "text-black"
+                } hover:text-blue-500 transition-colors duration-300 w-full text-left`}
                 aria-label={`Go to ${section}`}
               >
                 {section}
               </a>
               <span
                 className={`block h-0.75 w-0 bg-transparent absolute bottom-[-5px] left-0 transition-all duration-500 ${
-                  darkMode ? 'hover:bg-white' : 'hover:bg-black'
+                  darkMode ? "hover:bg-white" : "hover:bg-black"
                 }`}
-                style={{ width: '0' }}
+                style={{ width: "0" }}
               >
                 &nbsp;
               </span>
@@ -81,7 +87,9 @@ const Navbar = () => {
         {/* Dark Mode Toggle */}
         <button
           onClick={toggleDarkMode}
-          className={`mt-3 flex items-center justify-center p-2 rounded-full w-full`}
+          className={`mt-3 flex items-center justify-center p-2 rounded-full w-full ${
+            darkMode ? "text-white hover:bg-gray-800" : "text-black hover:bg-gray-100"
+          }`}
           aria-label="Toggle Dark Mode"
         >
           {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
@@ -96,16 +104,18 @@ const Navbar = () => {
               <a
                 href={`#${section}`}
                 onClick={(e) => handleNavigation(e, section)}
-                className={`font-bold text-xl ${darkMode ? 'text-white' : 'text-black'} hover:text-blue-500 transition-colors duration-300`}
+                className={`font-bold text-xl ${
+                  darkMode ? "text-white" : "text-black"
+                } hover:text-blue-500 transition-colors duration-300`}
                 aria-label={`Go to ${section}`}
               >
                 {section}
               </a>
               <span
                 className={`block h-0.75 w-0 bg-transparent absolute bottom-[-5px] left-0 transition-all duration-500 ${
-                  darkMode ? 'hover:bg-white' : 'hover:bg-black'
+                  darkMode ? "hover:bg-white" : "hover:bg-black"
                 }`}
-                style={{ width: '0' }}
+                style={{ width: "0" }}
               >
                 &nbsp;
               </span>
@@ -119,7 +129,9 @@ const Navbar = () => {
         </ul>
         <button
           onClick={toggleDarkMode}
-          className={`ml-5 flex items-center justify-center p-2 rounded-full transition-colors duration-200`}
+          className={`ml-5 flex items-center justify-center p-2 rounded-full transition-colors duration-200 ${
+            darkMode ? "text-white hover:bg-gray-800" : "text-black hover:bg-gray-100"
+          }`}
           aria-label="Toggle Dark Mode"
         >
           {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
