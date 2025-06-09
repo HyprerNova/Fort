@@ -6,7 +6,7 @@ import { useState } from "react";
 const Contact = () => {
   const { darkMode } = useTheme();
   const [copied, setCopied] = useState(false);
-  const email = "navlion666@gmail.com";
+  const email = "navneethksreenivas@gmail.com";
 
   const copyEmail = async () => {
     try {
@@ -48,7 +48,7 @@ const Contact = () => {
             </p>
             <div className="flex items-center space-x-4">
               {/* <p className={`text-xl font-mono ${darkMode ? "text-white" : "text-black"}`}>
-                {email}
+                email
               </p> */}
               <button
                 onClick={copyEmail}
