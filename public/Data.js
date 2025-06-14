@@ -4,7 +4,7 @@ const data = [
         details: "Built this website during my 3rd semester for full stack web development course. This website aims to spread mental awareness in a world where mental health generally ignored",
         tag : ['NextJS, ','TypeScript, ','Tailwind CSS'],
         pic: "/images/Projects/calm.png",
-        link: "https://github.com/kingnavneeth094/CALMPANION.git"
+        link: "https://github.com/HyprerNova/CALMPANION.git"
     },
     {
         name: "Student Admin Portal",
@@ -19,7 +19,7 @@ const data = [
         details: "This website is a testament to my skills as a web developer.",
         tag: ['Next.js, ', 'Java Script, ', 'Tailwind CSS'],
         pic: "/images/Projects/portfolio.png",
-        link: "yet to be uploaded",
+        link: "https://github.com/HyprerNova/Fort.git",
     }
 ];
 
