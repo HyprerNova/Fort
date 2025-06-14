@@ -46,7 +46,7 @@ const Home = () => {
                 />
               </a>
               <a
-                href="https://www.linkedin.com/in/navneeth-ks-69441b28b/"
+                href="https://www.linkedin.com/in/navneeth-ks/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transform transition-all duration-300 hover:scale-110 hover:shadow-lg"
@@ -60,7 +60,7 @@ const Home = () => {
                 />
               </a>
               <a
-                href="https://github.com/kingnavneeth094"
+                href="https://github.com/HyprerNova"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transform transition-all duration-300 hover:scale-110 hover:shadow-lg"
