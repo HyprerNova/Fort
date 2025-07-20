@@ -19,7 +19,7 @@ const data = [
         details: "This website is a testament to my skills as a web developer.",
         tag: ['Next.js, ', 'Java Script, ', 'Tailwind CSS'],
         pic: "/images/Projects/portfolio.png",
-        link: "yet to be uploaded",
+        link: "https://github.com/HyprerNova/Fort.git",
     }
 ];
 
