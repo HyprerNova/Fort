@@ -7,19 +7,20 @@ const data = [
         link: "https://github.com/HyprerNova/Dynamic-Kannada-Sign-Language-Recognition.git"
     },
     {
-        name: "Student Admin Portal",
-        details: "Built this website for the college management. This application enabled the college to store essential information (such as mode of admission, KCET rank etc) about the freshers.",
-        tag: ['Next.js, ', 'Java Script, ', 'Tailwind CSS'],
+        name: "AI powered Admin Portal",
+        details: "Built this website for the college management. This application enabled the college to store essential information (such as mode of admission, KCET rank etc) about the freshers. This application also included AI powered features like marks extractio from the documents and also AI powered data retrieval via natural language.",
+        tag: ['Next.js, ', 'PostgreSQL, ', 'Tailwind CSS', 'AWS'],
         pic: "/images/Projects/admin.png",
         link: "https://github.com/HyprerNova/COE.git"
 
     },
     {
-        name: "Personal Portfolio Website",
-        details: "This website is a testament to my skills as a web developer.",
-        tag: ['Next.js, ', 'Java Script, ', 'Tailwind CSS'],
-        pic: "/images/Projects/portfolio.png",
-        link: "https://github.com/HyprerNova/Fort.git",
+        name: "MCP Stock Broker",
+        details: "Connected my Zerodha trading account to Claude AI to get real time stock market data and also to get the best possible trade recommendations. It allows me to buy and sell stocks with a single click. It also allows me to view my portfolio.",
+        tag: ['MCP'],
+        pic: "/images/Projects/MCP-Zero.jpeg",
+        videoId: "BlFTuiuf430", // YouTube video ID
+        link: "https://github.com/HyprerNova/Zerodha_MCP.git",
     }
 ];
 

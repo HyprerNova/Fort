@@ -93,14 +93,37 @@ const Projects = () => {
               >
                 <div className="flex flex-col h-full">
                   <div className="relative h-[300px] md:h-[400px] rounded-t-xl overflow-hidden">
-                    <Image
-                      src={item.pic}
-                      alt={item.name}
-                      fill
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      priority={i === 0}
-                    />
+                    {item.videoId ? (
+                      <div className="w-full h-full relative group cursor-pointer" onClick={() => openModal(item)}>
+                        <Image
+                          src={item.pic}
+                          alt={item.name}
+                          fill
+                          sizes="(max-width: 768px) 90vw, 45vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          priority={i === 0}
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="bg-red-600 rounded-full p-4 transform group-hover:scale-110 transition-transform duration-300">
+                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                          Click to watch demo
+                        </div>
+                      </div>
+                    ) : (
+                      <Image
+                        src={item.pic}
+                        alt={item.name}
+                        fill
+                        sizes="(max-width: 768px) 90vw, 45vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        priority={i === 0}
+                      />
+                    )}
                   </div>
                   
                   <div className="flex flex-col justify-between flex-grow p-6">
@@ -167,12 +190,23 @@ const Projects = () => {
               </div>
               
               <div className="relative h-64 rounded-xl overflow-hidden">
-                <Image
-                  src={selectedProject.pic}
-                  alt={selectedProject.name}
-                  fill
-                  className="object-cover"
-                />
+                {selectedProject.videoId ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${selectedProject.videoId}?autoplay=0&rel=0`}
+                    title={selectedProject.name}
+                    className="w-full h-full rounded-xl"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <Image
+                    src={selectedProject.pic}
+                    alt={selectedProject.name}
+                    fill
+                    className="object-cover"
+                  />
+                )}
               </div>
               
               <p className={`text-lg leading-relaxed ${

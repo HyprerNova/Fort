@@ -28,7 +28,7 @@ const Home = () => {
               }`}
             >
               Here’s to ideas, effort, and everything in between. Welcome to my
-              corner of the internet ! Based in India 
+              corner of the internet ! 
             </p>
             <div className="social_links flex gap-4">
               <a
@@ -87,7 +87,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           className={`home_wrapper_text_below mt-16 p-6 rounded-xl backdrop-blur-sm ${
             darkMode
               ? "dark:bg-black dark:text-white"
@@ -151,7 +151,7 @@ const Home = () => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
