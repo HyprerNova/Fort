@@ -94,7 +94,16 @@ const Projects = () => {
                 <div className="flex flex-col h-full">
                   <div className="relative h-[300px] md:h-[400px] rounded-t-xl overflow-hidden">
                     {item.videoId ? (
-                      <div className="w-full h-full relative group cursor-pointer" onClick={() => openModal(item)}>
+                      <div className="w-full h-full relative group cursor-pointer" onClick={() => {
+                        // Check if it's a YouTube video ID or Google Drive link
+                        if (item.videoId.includes('youtube.com') || item.videoId.includes('youtu.be') || !item.videoId.includes('http')) {
+                          // YouTube video - open modal
+                          openModal(item);
+                        } else {
+                          // Google Drive or other link - open in new tab
+                          window.open(item.videoId, '_blank');
+                        }
+                      }}>
                         <Image
                           src={item.pic}
                           alt={item.name}
@@ -111,7 +120,9 @@ const Projects = () => {
                           </div>
                         </div>
                         <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                          Click to watch demo
+                          {item.videoId.includes('youtube.com') || item.videoId.includes('youtu.be') || !item.videoId.includes('http') 
+                            ? "Click to watch demo" 
+                            : "Click to open video"}
                         </div>
                       </div>
                     ) : (
@@ -190,7 +201,7 @@ const Projects = () => {
               </div>
               
               <div className="relative h-64 rounded-xl overflow-hidden">
-                {selectedProject.videoId ? (
+                {selectedProject.videoId && (selectedProject.videoId.includes('youtube.com') || selectedProject.videoId.includes('youtu.be') || !selectedProject.videoId.includes('http')) ? (
                   <iframe
                     src={`https://www.youtube.com/embed/${selectedProject.videoId}?autoplay=0&rel=0`}
                     title={selectedProject.name}
@@ -199,6 +210,22 @@ const Projects = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
+                ) : selectedProject.videoId && selectedProject.videoId.includes('drive.google.com') ? (
+                  <div className="w-full h-full flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-xl">
+                    <div className="text-center p-6">
+                      <svg className="w-16 h-16 mx-auto mb-4 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                      <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Video Demo Available</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">Click the button below to open the video in Google Drive</p>
+                      <button
+                        onClick={() => window.open(selectedProject.videoId, '_blank')}
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors duration-300"
+                      >
+                        Open Video
+                      </button>
+                    </div>
+                  </div>
                 ) : (
                   <Image
                     src={selectedProject.pic}

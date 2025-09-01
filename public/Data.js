@@ -4,6 +4,7 @@ const data = [
         details: "Built this for my final year project. This project aims to recognize the sign performed by the user and convert it into text. This project is built using MediaPipe and Tensorflow. Users can use a API call to simply upload the video of the sign and get the text back. This is achieved by hosting the model on a EC2 instance and using a flask API call to get the text back. The model was trained on a dataset of over 2300 samples and achieved a testing accuracy of 91%",
         tag : ['Deep Learning,', ' Computer Vision,', ' Flask,', ' AWS EC2'],
         pic: "/images/Projects/ksl.png",
+        videoId: "https://drive.google.com/file/d/1rNcoXXSdrOmFDXNqsM2B9cssP7GWJlIo/view",
         link: "https://github.com/HyprerNova/Dynamic-Kannada-Sign-Language-Recognition.git"
     },
     {

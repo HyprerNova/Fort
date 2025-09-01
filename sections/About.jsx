@@ -43,7 +43,7 @@ const About = () => {
             <p className={`text-lg leading-relaxed ${
               darkMode ? "text-gray-300" : "text-gray-700"
             }`}>
-              Greetings, my fellow homo sapiens! I see you've stumbled upon this web page. Born in the 21st century — truly the best time to be alive thanks to the revolutionary rise of AI — I couldn't be more thrilled to witness these exciting times. So, what are you waiting for? Scroll through the page and enjoy your day!
+              Greetings, my fellow homo sapiens! I see you've stumbled upon this web page. Born in the 21st century, truly the best time to be alive thanks to the revolutionary rise of AI. I couldn't be more thrilled to witness these exciting times. So, what are you waiting for? Scroll through the page and enjoy your day!
             </p>
           </div>
         </div>
