@@ -12,6 +12,7 @@ const data = [
         details: "Built this website for the college management. This application enabled the college to store essential information (such as mode of admission, KCET rank etc) about the freshers. This application also included AI powered features like marks extractio from the documents and also AI powered data retrieval via natural language.",
         tag: ['Next.js, ', 'PostgreSQL, ', 'Tailwind CSS', 'AWS'],
         pic: "/images/Projects/admin.png",
+        videoId: "https://drive.google.com/file/d/1BPRZlwMAQL1KwRRjowiUzrkNE4D3-qn9/view",
         link: "https://github.com/HyprerNova/COE.git"
 
     },
