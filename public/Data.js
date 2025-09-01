@@ -1,7 +1,7 @@
 const data = [
     {
         name: "Dynamic Kannada Sign Language Recognition",
-        details: "Built this for my final year project. This project aims to recognize the sign performed by the user and convert it into text. This project is built using MediaPipe and Tensorflow. Users can use a API call to simply upload the video of the sign and get the text back. This is achieved by hosting the model on a EC2 instance and using a flask API call to get the text back. The model was trained on a dataset of over 2300 samples and achieved a testing accuracy of 91%",
+        details: "Built this for my final year project. This project aims to recognize the sign performed by the user and convert it into text. This project is built using MediaPipe and Tensorflow. The model was trained on a dataset of 3900 samples and all the three SOTA deep learning models (LSTM, BiLSTM and Transformers) achieved a testing accuracy of more than91%",
         tag : ['Deep Learning,', ' Computer Vision,', ' Flask,', ' AWS EC2'],
         pic: "/images/Projects/ksl.png",
         videoId: "https://drive.google.com/file/d/1rNcoXXSdrOmFDXNqsM2B9cssP7GWJlIo/view",
